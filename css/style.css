@@ -245,9 +245,9 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .eqviz-stage {
   background: var(--bg-soft);
   border: 1px solid var(--line); border-radius: 12px;
-  padding: 12px; overflow-x: auto;
+  padding: 12px;
 }
-.eqviz-svg { width: 100%; height: auto; display: block; min-width: 560px; }
+.eqviz-svg { width: 100%; height: auto; display: block; }
 .eqviz-svg .grid-v { stroke: var(--line); stroke-width: 1; }
 .eqviz-svg .grid-h { stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 4; }
 .eqviz-svg .grid-zero { stroke: var(--muted); stroke-width: 1.2; }
