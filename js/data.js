@@ -140,7 +140,77 @@ export const MIXING_TIPS = [
     body: "The numbers are starting points for the full-band mix, not a contract. Rooms, speakers, and systems vary. Walk the room mid-service, listen for vocal clarity away from the mix position, and remember: room/system EQ is a separate fix from channel EQ."
   },
   {
-    title: "Check without effects",
-    body: "Reverb and delay hide problems. Mute them temporarily to hear whether a clash is masking or room acoustics. If it sounds good dry, the effects are the problem — not the EQ."
-  }
-];
+      title: "Check without effects",
+      body: "Reverb and delay hide problems. Mute them temporarily to hear whether a clash is masking or room acoustics. If it sounds good dry, the effects are the problem — not the EQ."
+    }
+  ];
+
+  /* Visual EQ curve data — structured filter points for drawing a real frequency-response curve.
+   * hpf: high-pass cutoff (Hz). bands: {type: 'cut'|'boost', freq, gain, q} peaking filters.
+   * These are the visual starting points distilled from the text reference above. */
+  export const EQ_CURVES = {
+    vocal: {
+      hpf: 110,
+      bands: [
+        { type: "cut", freq: 300, gain: -2.5, q: 1.1 },
+        { type: "boost", freq: 4000, gain: 1.5, q: 1.0 },
+        { type: "boost", freq: 11000, gain: 1.0, q: 1.2 }
+      ]
+    },
+    acoustic: {
+      hpf: 100,
+      bands: [
+        { type: "cut", freq: 260, gain: -3, q: 1.0 },
+        { type: "cut", freq: 3000, gain: -2, q: 1.2 },
+        { type: "boost", freq: 3500, gain: 1.5, q: 1.0 }
+      ]
+    },
+    keys: {
+      hpf: 100,
+      bands: [
+        { type: "cut", freq: 300, gain: -2.5, q: 1.0 },
+        { type: "cut", freq: 3000, gain: -3, q: 1.1 },
+        { type: "boost", freq: 1200, gain: 1.0, q: 1.0 },
+        { type: "boost", freq: 4000, gain: 1.0, q: 1.2 }
+      ]
+    },
+    bass: {
+      hpf: 40,
+      bands: [
+        { type: "cut", freq: 275, gain: -3, q: 1.0 },
+        { type: "boost", freq: 90, gain: 1.5, q: 1.2 },
+        { type: "boost", freq: 900, gain: 1.0, q: 1.0 }
+      ]
+    },
+    kick: {
+      hpf: 35,
+      bands: [
+        { type: "cut", freq: 325, gain: -4, q: 1.0 },
+        { type: "boost", freq: 65, gain: 2.0, q: 1.2 },
+        { type: "boost", freq: 3000, gain: 2.0, q: 1.0 }
+      ]
+    },
+    snare: {
+      hpf: 90,
+      bands: [
+        { type: "cut", freq: 600, gain: -3, q: 1.0 },
+        { type: "boost", freq: 200, gain: 2.0, q: 1.2 },
+        { type: "boost", freq: 3000, gain: 2.0, q: 1.0 }
+      ]
+    },
+    oh: {
+      hpf: 200,
+      bands: [
+        { type: "cut", freq: 450, gain: -2.5, q: 1.0 },
+        { type: "cut", freq: 4500, gain: -2, q: 1.2 },
+        { type: "boost", freq: 8000, gain: 1.0, q: 1.0 }
+      ]
+    },
+    backing: {
+          hpf: 60,
+          bands: [
+            { type: "cut", freq: 300, gain: -2.5, q: 1.0 },
+            { type: "cut", freq: 3000, gain: -3, q: 1.1 }
+          ]
+        }
+      };

@@ -1,4 +1,5 @@
 import { EQ_SOURCES, MIX_WORKFLOW } from './data.js';
+import { initEqViz } from './eqviz.js';
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -37,6 +38,9 @@ if (wf) {
   });
   wf.innerHTML = steps;
 }
+
+// Interactive visual EQ
+initEqViz();
 
 // Header scroll shadow
 const header = document.querySelector('.site-header');

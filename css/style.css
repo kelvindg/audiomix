@@ -223,6 +223,48 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .wf-action { font-weight: 700; font-size: 1rem; }
 .wf-check { color: var(--muted); font-size: .88rem; }
 
+/* Interactive EQ visualizer */
+.eqviz { display: flex; flex-direction: column; gap: 20px; }
+.eqviz-sel {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.eqviz-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--surface-2); color: var(--muted);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 8px 14px; font-family: var(--font-display);
+  font-size: .84rem; font-weight: 500; cursor: pointer;
+  transition: color .15s ease, border-color .15s ease, background .15s ease;
+}
+.eqviz-btn:hover { color: var(--text); border-color: var(--amber); }
+.eqviz-btn[aria-pressed="true"] {
+  background: var(--amber-soft); color: var(--amber);
+  border-color: var(--amber); font-weight: 700;
+}
+.eqviz-btn-icon { font-size: 1rem; line-height: 1; }
+.eqviz-stage {
+  background: var(--bg-soft);
+  border: 1px solid var(--line); border-radius: 12px;
+  padding: 12px; overflow-x: auto;
+}
+.eqviz-svg { width: 100%; height: auto; display: block; min-width: 560px; }
+.eqviz-svg .grid-v { stroke: var(--line); stroke-width: 1; }
+.eqviz-svg .grid-h { stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 4; }
+.eqviz-svg .grid-zero { stroke: var(--muted); stroke-width: 1.2; }
+.eqviz-svg .axis-label { fill: var(--muted); font-size: 10px; font-family: var(--font-mono); }
+.eqviz-svg .curve {
+  fill: none; stroke: var(--amber); stroke-width: 2.4;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.eqviz-svg .marker .mark-cut { fill: var(--red); }
+.eqviz-svg .marker .mark-boost { fill: var(--green); }
+.eqviz-svg .marker .mark-hpf { fill: var(--amber); }
+.eqviz-svg .marker circle { stroke: var(--bg); stroke-width: 1.5; }
+.eqviz-svg .mark-cut circle { fill: var(--red); }
+.eqviz-svg .mark-boost circle { fill: var(--green); }
+.eqviz-svg .mark-hpf circle { fill: var(--amber); }
+.eqviz-svg .mark-label { fill: var(--muted); font-size: 10px; font-family: var(--font-mono); }
+
 /* Tips page */
 .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .tip-card {

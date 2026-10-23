@@ -27,6 +27,7 @@
       </button>
       <div class="nav-links" id="navLinks">
         <a href="index.html#guide" aria-current="page">EQ Guide</a>
+        <a href="index.html#visual">Curves</a>
         <a href="index.html#workflow">Workflow</a>
         <a href="tips">Tips</a>
       </div>
@@ -40,7 +41,7 @@
       <h1 class="hero-title">Your EQ starting <em>points</em>, not rules.</h1>
       <p class="hero-sub">A personal live-mixing reference: where to high-pass, what to cut, what to boost, and how to listen — for every source in the band. Adjust by ear in the full mix.</p>
       <a class="btn" href="#guide">Open the EQ chart</a>
-      <a class="btn secondary" href="tips">Mixing tips →</a>
+      <a class="btn secondary" href="#visual">See the curves →</a>
     </div>
   </section>
 
@@ -63,6 +64,18 @@
         <span><em class="sw sw-amber"></em> HPF starting point</span>
         <span><em class="sw sw-red"></em> Cut / trim frequency</span>
         <span><em class="sw sw-green"></em> Boost / preserve frequency</span>
+      </div>
+    </div>
+
+    <div class="section-head" id="visual">
+      <p class="eyebrow">See It</p>
+      <h2>Interactive EQ curves</h2>
+      <p>Pick a source to see its frequency-response curve — the high-pass rolloff, the cuts, and the boosts drawn on a log-frequency axis. Hover the markers for the exact numbers.</p>
+    </div>
+    <div class="panel">
+      <div class="eqviz" id="eqViz">
+        <div class="eqviz-sel" role="group" aria-label="Choose a source"></div>
+        <div class="eqviz-stage"></div>
       </div>
     </div>
 
