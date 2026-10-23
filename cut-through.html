@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cut-Through EQ — AudioMix Guide</title>
+  <meta name="description" content="How to EQ any instrument so it cuts through the mix — high-pass to free space, subtractive carving, de-mudding, and per-instrument recipes for live worship on the Soundcraft Ui16." />
+  <meta property="og:title" content="Cut-Through EQ — AudioMix Guide" />
+  <meta property="og:description" content="Band EQ shaping for cut-through, clarity and de-mudding — the framework plus a recipe for every source in the band." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230d0f0e'/><rect x='18' y='38' width='64' height='28' rx='6' fill='%23e8a33d'/><rect x='18' y='30' width='64' height='4' rx='2' fill='%237fc48c'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/gate.js"></script>
+  <script type="module" src="js/cutthrough-main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#cutthrough">Skip to cut-through guide</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="index.html"><span class="brand-word">AudioMix<span class="brand-dot">.</span></span> <span class="brand-sub">Guide</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#guide">EQ Guide</a>
+        <a href="index.html#workflow">Workflow</a>
+        <a href="cut-through" aria-current="page">Cut-Through</a>
+        <a href="tips">Tips</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" aria-label="Cut-through intro">
+    <div class="hero-media"></div>
+    <div class="hero-copy">
+      <p class="eyebrow">Cut-Through EQ</p>
+      <h1 class="hero-title">Make it sit, not just <em>loud.</em></h1>
+      <p class="hero-sub">How band EQ shaping lets any instrument cut through a voice, dodge the mud, and stay individually clear — from a deep research pass on frequency bands, masking, and per-instrument recipes.</p>
+      <a class="btn" href="#cutthrough">Open the guide</a>
+      <a class="btn secondary" href="#recipes">Jump to recipes →</a>
+    </div>
+  </section>
+
+  <main id="cutthrough" class="container">
+
+    <!-- 1 · frequency bands -->
+    <div class="section-head">
+      <p class="eyebrow">The Map</p>
+      <h2>The frequency bands — what each one controls</h2>
+      <p>Every instrument has a home in specific bands, and every band has a job. Knowing the map is the difference between guessing and deliberately shaping a source.</p>
+    </div>
+    <div class="panel">
+      <div class="ct-table" id="bandTable"></div>
+      <div class="ct-takeaway">Golden rule: <strong>cut before you boost.</strong> Cutting overlapping frequencies is almost always cleaner than boosting the other signal.</div>
+    </div>
+
+    <!-- 2 · masking -->
+    <div class="section-head">
+      <p class="eyebrow">The Problem</p>
+      <h2>Frequency masking — why instruments get lost</h2>
+      <p>When two sounds occupy the same frequency range at once, the louder one makes the quieter one hard — or impossible — to hear. A muddy mix and a buried vocal are almost always masking.</p>
+    </div>
+    <div class="panel">
+      <div class="ct-masks" id="maskingPairs"></div>
+      <h3 class="ct-subhead">How to detect it</h3>
+      <ul class="ct-checks" id="maskingChecks"></ul>
+    </div>
+
+    <!-- 3 · levers -->
+    <div class="section-head">
+      <p class="eyebrow">The Levers</p>
+      <h2>How EQ creates cut-through, clarity &amp; de-mud</h2>
+      <p>Cut-through isn't automatically louder — it's about giving each instrument an unshared slice of the spectrum, then shaping character.</p>
+    </div>
+    <div class="ct-levers" id="levers"></div>
+
+    <!-- 4 · recipes -->
+    <div class="section-head" id="recipes">
+      <p class="eyebrow">Per Instrument</p>
+      <h2>A recipe for every source</h2>
+      <p>The 8 sources from the AudioMix guide: fundamental range, high-pass point, cuts to de-mud, boosts to cut through, and how to place each against the lead vocal.</p>
+    </div>
+    <div class="ct-recipes" id="recipes"></div>
+
+    <!-- 5 · playbook -->
+    <div class="section-head">
+      <p class="eyebrow">The Playbook</p>
+      <h2>Quick cut-through order</h2>
+      <p>When an instrument isn't cutting through, work this order before touching a fader.</p>
+    </div>
+    <div class="panel">
+      <ol class="ct-steps" id="playbookSteps"></ol>
+      <h3 class="ct-subhead">Five rules that prevent mud in the first place</h3>
+      <div class="ct-rules" id="antiMudRules"></div>
+    </div>
+
+    <!-- sources -->
+    <div class="section-head">
+      <p class="eyebrow">References</p>
+      <h2>Sources</h2>
+      <p>The research behind this guide.</p>
+    </div>
+    <div class="panel">
+      <ul class="ct-sources" id="sourcesList"></ul>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p class="footer-brand">AudioMix<span class="brand-dot">.</span> Guide</p>
+    <p>Personal live-worship mixing reference for the Soundcraft Ui16 · by KDG</p>
+    <p>Starting points only — the room and the full mix are the final judge.</p>
+  </footer>
+</body>
+</html>
