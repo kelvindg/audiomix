@@ -5,7 +5,7 @@
  */
 (function () {
   "use strict";
-  var HASH = "c9f7c2f9c09199a377fc592af0da696ae4dd8bc663e41ed90816319109793b2b";
+  var HASH = "ff641dab77828ef509ed6cafa6e79dc6c7fb4dca8a217750272e96d7203d2491";
   var KEY = "audiomix-unlocked";
 
   function sha256hex(str) {
