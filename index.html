@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AudioMix Guide — Live Worship EQ Reference</title>
+  <meta name="description" content="AudioMix Guide — a personal live-worship mixing reference for the Soundcraft Ui16: EQ starting points for every source, the 8-step mix workflow, and pro tips for a clear, present band mix." />
+  <meta property="og:title" content="AudioMix Guide — Live Worship EQ Reference" />
+  <meta property="og:description" content="EQ starting points for the Soundcraft Ui16, the 8-step mix workflow, and pro mixing tips. Personal guide by KDG." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230d0f0e'/><rect x='18' y='38' width='64' height='28' rx='6' fill='%23e8a33d'/><rect x='18' y='30' width='64' height='4' rx='2' fill='%237fc48c'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/gate.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#guide">Skip to EQ guide</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="index.html"><span class="brand-word">AudioMix<span class="brand-dot">.</span></span> <span class="brand-sub">Guide</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#guide" aria-current="page">EQ Guide</a>
+        <a href="index.html#workflow">Workflow</a>
+        <a href="tips.html">Tips</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" aria-label="Intro">
+    <div class="hero-media"></div>
+    <div class="hero-copy">
+      <p class="eyebrow">Live Worship — Soundcraft Ui16</p>
+      <h1 class="hero-title">Your EQ starting <em>points</em>, not rules.</h1>
+      <p class="hero-sub">A personal live-mixing reference: where to high-pass, what to cut, what to boost, and how to listen — for every source in the band. Adjust by ear in the full mix.</p>
+      <a class="btn" href="#guide">Open the EQ chart</a>
+      <a class="btn secondary" href="tips.html">Mixing tips →</a>
+    </div>
+  </section>
+
+  <div class="meter-strip container" aria-label="Quick stats">
+    <div class="meter-item"><strong><span class="led">8</span></strong><span>eq sources</span></div>
+    <div class="meter-item"><strong><span class="led">8</span></strong><span>workflow steps</span></div>
+    <div class="meter-item"><strong><span class="led">3</span></strong><span>mix checks</span></div>
+    <div class="meter-item"><strong><span class="led">±</span></strong><span>dB increments</span></div>
+  </div>
+
+  <main id="guide" class="container">
+    <div class="section-head">
+      <p class="eyebrow">The EQ Reference</p>
+      <h2>The graphic — every source, every number</h2>
+      <p>The complete reference from the Live Worship EQ Guide. These are audition starting points, not mandatory settings — frequencies in Hz/kHz, gain changes in dB. Adjust by ear in the full band mix.</p>
+    </div>
+    <div class="panel">
+      <div class="eq-chart" id="eqChart"></div>
+      <div class="eq-legend">
+        <span><em class="sw sw-amber"></em> HPF starting point</span>
+        <span><em class="sw sw-red"></em> Cut / trim frequency</span>
+        <span><em class="sw sw-green"></em> Boost / preserve frequency</span>
+      </div>
+    </div>
+
+    <div class="section-head" id="workflow">
+      <p class="eyebrow">The Workflow</p>
+      <h2>8-step mix order</h2>
+      <p>Bring the mix up in this order so nothing fights for the same space. Each step asks one thing to check before you move on.</p>
+    </div>
+    <div class="panel">
+      <div class="workflow" id="workflow"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p class="footer-brand">AudioMix<span class="brand-dot">.</span> Guide</p>
+    <p>Personal live-worship mixing reference for the Soundcraft Ui16 · by KDG</p>
+    <p>Starting points only — the room and the full mix are the final judge.</p>
+  </footer>
+</body>
+</html>
