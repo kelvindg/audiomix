@@ -397,6 +397,129 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 /* Tips hero (uses tips.webp) */
 .hero-media.tips { background-image: url("../images/tips.webp"); }
 
+/* Measure hero (uses measure.webp) */
+.hero-media.measure { background-image: url("../images/measure.webp"); }
+
+/* Measure page — gear list */
+.me-gear {
+  display: flex; flex-direction: column; gap: 12px;
+  font-size: .92rem; color: var(--text); line-height: 1.55;
+}
+.me-gear span { display: flex; align-items: center; gap: 12px; }
+.me-gear .sw { flex: 0 0 auto; }
+
+/* Measure page — signal chain diagram */
+.me-chain-note { color: var(--muted); font-size: .88rem; margin: 6px 0 18px; }
+.me-chain {
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  overflow-x: auto;
+}
+.me-chain svg { width: 100%; min-width: 620px; height: auto; display: block; }
+
+/* Measure page — phase + steps */
+.me-phase { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+.me-phase-head { margin-bottom: 2px; }
+.me-phase-tag {
+  display: inline-block;
+  font-size: .68rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--amber); font-weight: 700;
+  border: 1px solid var(--amber-soft); background: var(--amber-soft);
+  border-radius: 999px; padding: 5px 12px;
+}
+.me-step {
+  display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: start;
+  background: var(--surface-2); border: 1px solid var(--line);
+  border-left: 3px solid var(--amber);
+  border-radius: 12px; padding: 16px 18px;
+}
+.me-step:nth-child(3n+2) { border-left-color: var(--green); }
+.me-step:nth-child(3n+3) { border-left-color: var(--cyan); }
+.me-step-num {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--amber-soft); color: var(--amber);
+  font-weight: 700; font-size: .95rem; font-variant-numeric: tabular-nums;
+}
+.me-step:nth-child(3n+2) .me-step-num { background: var(--green-soft); color: var(--green); }
+.me-step:nth-child(3n+3) .me-step-num { background: var(--cyan-soft); color: var(--cyan); }
+.me-step-body h3 { margin: 0 0 4px; font-size: 1.02rem; letter-spacing: -.01em; }
+.me-step-body p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.6; }
+.me-step-body .ct-takeaway { margin-top: 12px; font-size: .86rem; }
+
+/* Measure page — graph cards */
+.me-graph-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.me-graph-card {
+  background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 22px;
+  display: flex; flex-direction: column; gap: 8px; position: relative; overflow: hidden;
+}
+.me-graph-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--amber); }
+.me-graph-card.g-cyan::before { background: var(--cyan); }
+.me-graph-card.g-green::before { background: var(--green); }
+.me-graph-card.g-red::before { background: var(--red); }
+.me-graph-card h3 { margin: 0; font-size: 1.1rem; letter-spacing: -.01em; }
+.me-graph-card p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.6; }
+.me-graph-tips { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+.me-read-tip {
+  display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start;
+  background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px;
+}
+.me-read-num {
+  width: 34px; height: 34px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--green-soft); color: var(--green);
+  font-weight: 700; font-size: .8rem; font-variant-numeric: tabular-nums;
+}
+.me-read-tip strong { font-size: .95rem; }
+.me-read-tip p { margin: 3px 0 0; color: var(--muted); font-size: .87rem; line-height: 1.55; }
+
+/* Measure page — cheat sheet */
+.me-cheat { display: flex; flex-direction: column; gap: 0; overflow-x: auto; }
+.me-cheat-row {
+  display: grid; grid-template-columns: 1fr 1.6fr; gap: 12px;
+  padding: 12px 14px; border-bottom: 1px solid var(--line); align-items: start;
+  font-size: .88rem; line-height: 1.5;
+}
+.me-cheat-row:last-of-type { border-bottom: none; }
+.me-cheat-head {
+  background: var(--surface-2); border-radius: 10px 10px 0 0;
+  font-weight: 700; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); padding: 8px 14px;
+}
+.me-cheat-a { font-weight: 700; color: var(--text); }
+.me-cheat-h { color: var(--muted); }
+
+/* Measure page — video card at end */
+.me-video {
+  display: flex; align-items: flex-start; gap: 18px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 26px 28px; box-shadow: var(--shadow);
+}
+.me-video-icon {
+  flex: 0 0 auto; width: 54px; height: 54px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--amber-soft); color: var(--amber);
+  font-size: 1.05rem; padding-left: 3px;
+}
+.me-video-body .eyebrow { margin-bottom: 6px; }
+.me-video-body h3 { margin: 0 0 6px; font-size: 1.15rem; letter-spacing: -.01em; }
+.me-video-body h3 a { color: var(--text); text-decoration: none; }
+.me-video-body h3 a:hover { color: var(--amber); }
+.me-video-body p { margin: 0; color: var(--muted); font-size: .88rem; }
+
+@media (max-width: 860px) {
+  .me-graph-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  .me-step { grid-template-columns: 44px 1fr; gap: 12px; }
+  .me-step-num { width: 36px; height: 36px; font-size: .85rem; }
+  .me-video { flex-direction: column; }
+}
+
 /* Footer */
 .footer {
   margin-top: 72px; padding: 36px 0; text-align: center;

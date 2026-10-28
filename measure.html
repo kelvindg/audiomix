@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Measure — Open Sound Meter Quick Start — AudioMix by Kelvin</title>
+  <meta name="description" content="Measure &amp; tune: how to set up Open Sound Meter to measure a speaker system — the rig, the transfer-function routing, gain staging, coherence, delay compensation, and reading magnitude, phase, and impulse graphs." />
+  <meta property="og:title" content="Measure — Open Sound Meter Quick Start — AudioMix by Kelvin" />
+  <meta property="og:description" content="Step-by-step Open Sound Meter setup for measuring speaker systems — from the mic on the stand to a stored, readable measurement." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230d0f0e'/><rect x='18' y='38' width='64' height='28' rx='6' fill='%23e8a33d'/><rect x='18' y='30' width='64' height='4' rx='2' fill='%237fc48c'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/gate.js"></script>
+  <script type="module" src="js/measure.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#measure">Skip to measure guide</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="index.html"><span class="brand-word">AudioMix<span class="brand-dot">.</span></span> <span class="brand-sub">by Kelvin</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#guide">EQ Guide</a>
+        <a href="index.html#workflow">Workflow</a>
+        <a href="cut-through">Cut-Through</a>
+        <a href="tips">Tips</a>
+        <a href="measure" aria-current="page">Measure</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" aria-label="Measure intro">
+    <div class="hero-media measure"></div>
+    <div class="hero-copy">
+      <p class="eyebrow">Measure &amp; Tune · Open Sound Meter</p>
+      <h1 class="hero-title">Measure the room, not the <em>guess.</em></h1>
+      <p class="hero-sub">How to set up Open Sound Meter the right way — mic on the stand, reference looped, levels matched, delay compensated — so the graph tells you what the speakers are actually doing in the room.</p>
+      <a class="btn" href="#measure">Start measuring</a>
+      <a class="btn secondary" href="#cheatsheet">Cheat sheet →</a>
+    </div>
+  </section>
+
+  <main id="measure" class="container">
+
+    <!-- 1 · the rig -->
+    <div class="section-head">
+      <p class="eyebrow">Phase 01 · The Rig</p>
+      <h2>What you need, and how to wire it</h2>
+      <p>Open Sound Meter (OSM) compares two sounds: the pink noise <em>before</em> it hits the speaker, and the same noise <em>after</em> it comes out — picked up by a mic. That comparison is the measurement. Gear is simple: any audio interface, a measurement mic, and your laptop.</p>
+    </div>
+    <div class="panel">
+      <div class="me-gear" role="list" aria-label="Gear needed">
+        <span><em class="sw sw-amber"></em> Audio interface — anything works; the video uses a Focusrite Scarlett</span>
+        <span><em class="sw sw-green"></em> Measurement microphone — a calibration mic (e.g. Rational Acoustics RTA-420)</span>
+        <span><em class="sw sw-cyan"></em> Pink noise — OSM&rsquo;s built-in generator</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3 class="ct-subhead">The signal chain</h3>
+      <p class="me-chain-note">Generator → speaker → mic → interface, with the reference looped back inside OSM before it ever reaches the speaker.</p>
+      <div class="me-chain" role="img" aria-label="Diagram: OSM generator sends pink noise to the speaker; the measurement mic picks it up and returns it to OSM. The reference signal loops from the generator straight into the measurement.">
+        <svg viewBox="0 0 940 340" xmlns="http://www.w3.org/2000/svg" role="presentation">
+          <!-- laptop / OSM -->
+          <rect x="18" y="96" width="200" height="140" rx="14" fill="#181c1a" stroke="#2a302c"/>
+          <text x="118" y="122" text-anchor="middle" fill="#ece9e2" font-size="14" font-weight="700" font-family="Space Grotesk, sans-serif">Open Sound Meter</text>
+          <!-- generator chip -->
+          <rect x="34" y="140" width="160" height="34" rx="8" fill="#3a2f1c" stroke="#e8a33d"/>
+          <text x="42" y="162" fill="#e8a33d" font-size="12" font-weight="600" font-family="JetBrains Mono, monospace">GEN · −12 dB</text>
+          <!-- measurement chip -->
+          <rect x="34" y="186" width="160" height="34" rx="8" fill="#1d3322" stroke="#7fc48c"/>
+          <text x="42" y="208" fill="#7fc48c" font-size="12" font-weight="600" font-family="JetBrains Mono, monospace">MEAS · M / R</text>
+          <!-- loop arrow inside -->
+          <path d="M 114 174 C 114 180 114 184 114 186" stroke="#7fc9c4" stroke-width="2" fill="none" stroke-dasharray="4 3" marker-end="url(#me-arrow-cyan)"/>
+          <text x="120" y="183" fill="#7fc9c4" font-size="11" font-family="JetBrains Mono, monospace">LOOP = reference</text>
+
+          <!-- interface -->
+          <rect x="270" y="140" width="150" height="62" rx="10" fill="#181c1a" stroke="#2a302c"/>
+          <text x="345" y="165" text-anchor="middle" fill="#ece9e2" font-size="12.5" font-weight="700" font-family="Space Grotesk, sans-serif">Audio interface</text>
+          <text x="345" y="185" text-anchor="middle" fill="#9aa29b" font-size="11" font-family="JetBrains Mono, monospace">IN 1 = MIC</text>
+
+          <!-- speaker -->
+          <rect x="700" y="90" width="180" height="160" rx="14" fill="#1e2320" stroke="#2a302c"/>
+          <circle cx="790" cy="150" r="34" fill="none" stroke="#2a302c" stroke-width="8"/>
+          <circle cx="790" cy="150" r="10" fill="none" stroke="#2a302c" stroke-width="5"/>
+          <text x="790" y="222" text-anchor="middle" fill="#ece9e2" font-size="13" font-weight="700" font-family="Space Grotesk, sans-serif">Speaker under test</text>
+          <text x="790" y="238" text-anchor="middle" fill="#9aa29b" font-size="10.5" font-family="JetBrains Mono, monospace">OUT 1</text>
+
+          <!-- mic -->
+          <path d="M 585 300 L 585 268 L 600 250 L 620 240 L 640 240 L 660 250 L 660 300 Z" fill="#1e2320" stroke="#2a302c"/>
+          <circle cx="645" cy="248" r="7" fill="none" stroke="#7fc9c4" stroke-width="2"/>
+          <path d="M 655 252 L 680 260" stroke="#2a302c" stroke-width="6" stroke-linecap="round"/>
+          <text x="640" y="322" text-anchor="middle" fill="#ece9e2" font-size="12.5" font-weight="700" font-family="Space Grotesk, sans-serif">Measurement mic</text>
+          <text x="640" y="337" text-anchor="middle" fill="#9aa29b" font-size="10.5" font-family="JetBrains Mono, monospace">~1 m from speaker</text>
+
+          <!-- generator out -->
+          <path d="M 218 157 L 270 157" stroke="#e8a33d" stroke-width="2.5" fill="none" marker-end="url(#me-arrow-amber)"/>
+          <text x="244" y="148" text-anchor="middle" fill="#e8a33d" font-size="10" font-family="JetBrains Mono, monospace">out</text>
+
+          <!-- interface to speaker -->
+          <path d="M 420 162 L 700 162" stroke="#e8a33d" stroke-width="2.5" fill="none" marker-end="url(#me-arrow-amber)"/>
+          <text x="560" y="152" text-anchor="middle" fill="#e8a33d" font-size="10" font-family="JetBrains Mono, monospace">pink noise →</text>
+
+          <!-- speaker sound to mic -->
+          <path d="M 720 248 C 700 268 690 276 668 258" stroke="#7fc48c" stroke-width="2" fill="none" stroke-dasharray="5 4" marker-end="url(#me-arrow-green)"/>
+          <text x="700" y="290" text-anchor="middle" fill="#7fc48c" font-size="10" font-family="JetBrains Mono, monospace">sound in room</text>
+
+          <!-- mic back to interface -->
+          <path d="M 610 286 C 520 300 440 280 400 210" stroke="#7fc48c" stroke-width="2.5" fill="none" marker-end="url(#me-arrow-green)"/>
+          <text x="470" y="300" text-anchor="middle" fill="#7fc48c" font-size="10" font-family="JetBrains Mono, monospace">mic in</text>
+
+          <defs>
+            <marker id="me-arrow-amber" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L8 4.5 L0 9 Z" fill="#e8a33d"/></marker>
+            <marker id="me-arrow-green" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L8 4.5 L0 9 Z" fill="#7fc48c"/></marker>
+            <marker id="me-arrow-cyan" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L8 4.5 L0 9 Z" fill="#7fc9c4"/></marker>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 2 · the signal -->
+    <div class="section-head">
+      <p class="eyebrow">Phase 02 · The Signal</p>
+      <h2>Route OSM so it compares the right things</h2>
+      <p>OSM&rsquo;s trick: click any module — graph, measurement, or generator — and its settings appear at the bottom of the screen. Nothing is hidden in menus. Get the measurement channel on the mic, the reference on the loop, levels matched, and the delay compensated.</p>
+    </div>
+    <div class="me-phases" id="measureSteps"></div>
+
+    <!-- 3 · the read -->
+    <div class="section-head">
+      <p class="eyebrow">Phase 03 · The Read</p>
+      <h2>What the graphs are telling you</h2>
+      <p>The four ways to look at the same data, and how to make the trace trustworthy before you act on it.</p>
+    </div>
+    <div class="me-graphs" id="graphCards"></div>
+
+    <!-- 4 · the store -->
+    <div class="section-head">
+      <p class="eyebrow">Phase 04 · The Store</p>
+      <h2>Save, label, and keep every measurement</h2>
+      <p>Stored measurements live on the right-hand panel. Name them, color them, and build a history of how the system responds — and how it changes.</p>
+    </div>
+    <div class="panel">
+      <ol class="ct-steps" id="storeSteps"></ol>
+    </div>
+
+    <!-- cheat sheet -->
+    <div class="section-head" id="cheatsheet">
+      <p class="eyebrow">Cheat Sheet</p>
+      <h2>The moves, at a glance</h2>
+      <p>The essential Open Sound Meter actions for measurement — the ones you&rsquo;ll reach for every time you open the software.</p>
+    </div>
+    <div class="panel">
+      <div class="me-cheat" id="cheatRows"></div>
+    </div>
+
+    <!-- video -->
+    <div class="section-head">
+      <p class="eyebrow">Source</p>
+      <h2>Watch the full walkthrough</h2>
+      <p>This guide mirrors Offshore Audio&rsquo;s excellent quick start. Watch the whole 18-minute video to see every click on screen — especially the delay-compensation moment, which is the one that makes coherence suddenly snap into focus.</p>
+    </div>
+    <div class="me-video">
+      <div class="me-video-icon" aria-hidden="true">▶</div>
+      <div class="me-video-body">
+        <p class="eyebrow">Offshore Audio · Quick Start Guide For Open Sound Meter</p>
+        <h3><a href="https://www.youtube.com/watch?v=NU3LaEc_zqc" target="_blank" rel="noopener">Quick Start Guide For Open Sound Meter →</a></h3>
+        <p>YouTube · 18:09 · The full visual walkthrough this page was built from.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p class="footer-brand">AudioMix<span class="brand-dot">.</span> <span class="brand-sub">by Kelvin</span></p>
+    <p>Personal live-worship mixing reference for the Soundcraft Ui16 · by KDG</p>
+    <p>Starting points only — the room and the full mix are the final judge.</p>
+  </footer>
+</body>
+</html>
